@@ -12,6 +12,8 @@ Installation instructions are the same as our standard library, except for point
 4. In your Activities, add the following calls inside onPause() and onCreate(). We recommend that you put this code in a base class, and to extend activities from this base class. <br>
 
 Alternatively, you can extend all activities from com.vessel.activities.VesselActivity which implements the above code.
+        
+        
         @Override
         protected void onPause() {
           VesselAB.onPause(this);
