@@ -1,25 +1,31 @@
-AndroidSDK(Beta) for Vessel Visual Studio
-Vessel Android SDK 2.0b1.
+<strong>AndroidSDK(Beta) for Vessel Visual Studio</strong>
+
+Vessel Android SDK 2.0b2.
 
 Installation instructions
 
 Installation instructions are the same as our standard library, except for points 4 & 5.
 
-Copy vesselsdk.jar to your libs folder
-Add "INTERNET" and "ACCESS_NETWORK_STATE" permissions to your manifest.
-Inside your Application's onCreate() method add this line :- VesselSDK.initialize(getApplicationContext(), secretKey);
-In your Activities, add the following calls inside onPause() and onCreate(). We recommend that you put this code in a base class, and to extend activities from this base class. Alternatively, you can extend all activities from com.vessel.activities.VesselActivity which implements the above code.
+1.Copy vesselsdk.jar to your libs folder and add android support library<br>
+2.Add "INTERNET" and "ACCESS_NETWORK_STATE" permissions to your manifest.<br>
+3.Inside your Application's onCreate() method add this line :- VesselSDK.initialize(getApplicationContext(), secretKey);<br>
+4. In your Activities, add the following calls inside onStart() and onStop(). We recommend that you put this code in a base class, and to extend activities from this base class. <br>
+
+Alternatively, you can extend all activities from com.vessel.activities.VesselActivity which implements the above code.
+        
+        
         @Override
-        protected void onPause() {
-          VesselAB.onPause(this);
-          super.onPause();
+        protected void onStop() {
+          VesselAB.onStop(this);
+          super.onStop();
         }
 
         @Override
-        protected void onResume() {
-          VesselAB.onResume(this);
-          super.onResume();
+        protected void onStart() {
+          VesselAB.onStart(this);
+          super.onStart();
         }
+
 5 To design a test, you need to enable the debug flag in your manifest file. Inside AndroidManifest.xml
 
 <application
@@ -34,10 +40,10 @@ In your Activities, add the following calls inside onPause() and onCreate(). We 
 
 Note that this is only for designing an test. Once you are done with design, you can remove this flag for production use.
 
-Using Vessel Studio
+<strongUsing Vessel Studio</strong>
 
-Start the application on your mobile phone.
-Create a new test
-Select Vessel Studio.
-You should see your device listed. Click on the device.
-You app screen should be mirrored on the web page. You can now add a variation and make changes by selecting an element.
+1.Start the application on your mobile phone.<br>
+2.Create a new test<br>
+3.Select Vessel Studio.<br>
+4.You should see your device listed. Click on the device.<br>
+5.You app screen should be mirrored on the web page. You can now add a variation and make changes by selecting an element.
